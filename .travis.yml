@@ -9,16 +9,27 @@ matrix:
       env:
         - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
     - os: linux
+      # FIXME: remove dist, when Xenial images become default in Travis CI
+      dist: xenial
       env:
         - OS_TYPE=centos_docker
         - OS_VERSION=7
+        - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
     - os: linux
+      # FIXME: remove dist, when Xenial images become default in Travis CI
+      dist: xenial
       env:
         - OS_TYPE=ubuntu_docker
         - OS_VERSION=bionic
+        - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
     - compiler: "gcc"
       os: osx
       osx_image: xcode10.1
+      env:
+        - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
+    - compiler: "gcc"
+      os: osx
+      osx_image: xcode11
       env:
         - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
 

@@ -123,8 +123,8 @@ __handle_common() {
 	# -DENABLE_INTERNAL_VOLK:BOOL=OFF
 	# FIXME: see about keeping a deb/rpm somewhere cached for this
 	cmake_build_git "gnuradio" \
-		"https://github.com/analogdevicesinc/gnuradio" \
-		"signal_source_phase_rebased" \
+		"https://github.com/gnuradio/gnuradio" \
+		"maint-3.8" \
 		"-DENABLE_INTERNAL_VOLK:BOOL=ON -DENABLE_GR_FEC:BOOL=OFF -DENABLE_GR_DIGITAL:BOOL=OFF -DENABLE_GR_DTV:BOOL=OFF -DENABLE_GR_ATSC:BOOL=OFF -DENABLE_GR_AUDIO:BOOL=OFF -DENABLE_GR_CHANNELS:BOOL=OFF -DENABLE_GR_NOAA:BOOL=OFF -DENABLE_GR_PAGER:BOOL=OFF -DENABLE_GR_TRELLIS:BOOL=OFF -DENABLE_GR_VOCODER:BOOL=OFF"
 }
 

@@ -44,12 +44,26 @@ handle_default() {
 	done
 
 	sudo apt-get -qq update
+	
+	ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+	export DEBIAN_FRONTEND=noninteractive
+	apt-get install -y tzdata
+	dpkg-reconfigure --frontend noninteractive tzdata
+
+	sudo apt-get upgrade -y
 	# FIXME: remove python-mako & python-six when not building gnuradio
 	sudo apt-get install -y build-essential libboost-dev libpython-dev bison \
 		flex git libfftw3-dev swig cmake libaio-dev libavahi-client-dev libavahi-common-dev \
 		libusb-1.0-0-dev libxml2-dev tar bzip2 gzip \
 		python-mako python-six \
 		$BOOST_PACKAGES
+		
+	# Requirements to build gnuradio 3.8
+	sudo apt-get install -y git cmake g++ libboost-all-dev libgmp-dev swig python3-numpy \
+		python3-mako python3-sphinx python3-lxml doxygen libfftw3-dev \
+		libsdl1.2-dev libgsl-dev libqwt-qt5-dev libqt5opengl5-dev python3-pyqt5 \
+		liblog4cpp5-dev libzmq3-dev python3-yaml python3-click python3-click-plugins \
+		python3-zmq python3-scipy
 
 	if apt-cache show libserialport-dev &> /dev/null ; then
 		sudo apt-get install -y libserialport-dev

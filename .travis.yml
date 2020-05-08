@@ -19,6 +19,13 @@ matrix:
       # FIXME: remove dist, when Xenial images become default in Travis CI
       dist: xenial
       env:
+        - OS_TYPE=centos_docker
+        - OS_VERSION=8
+        - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
+    - os: linux
+      # FIXME: remove dist, when Xenial images become default in Travis CI
+      dist: xenial
+      env:
         - OS_TYPE=ubuntu_docker
         - OS_VERSION=bionic
         - EXTRA_SSH=-oHostKeyAlgorithms=+ssh-dss
